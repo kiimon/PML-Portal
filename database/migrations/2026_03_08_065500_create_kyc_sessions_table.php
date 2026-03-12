@@ -8,17 +8,23 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('heroes', function (Blueprint $table) {
+        Schema::create('kyc_sessions', function (Blueprint $table) {
+
             $table->id();
-            $table->string('name');
-            $table->string('icon_url');
-            $table->string('portrait_url');
+
+            $table->uuid('token');
+
+            $table->string('status')->default('pending');
+
+            $table->json('ocr_data')->nullable();
+
             $table->timestamps();
+
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('heroes');
+        Schema::dropIfExists('kyc_sessions');
     }
 };
