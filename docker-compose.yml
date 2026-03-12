@@ -1,0 +1,15 @@
+services:
+  mysql:
+    image: 'mysql:8.0'
+    container_name: pml_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Kiimon_7257DB'
+      MYSQL_DATABASE: 'pml_portal'
+      MYSQL_USER: 'kserver'
+      MYSQL_PASSWORD: 'Kiimon_7257DB'
+    ports:
+      - '3306:3306'
+    volumes:
+      # CRITICAL: This now points directly to your Samsung 990 Pro mount
+      - '/mnt/data/docker_data/pml_mysql:/var/lib/mysql'
