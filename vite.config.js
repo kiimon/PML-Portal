@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'vite'
+import laravel from 'laravel-vite-plugin'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
     plugins: [
@@ -10,9 +10,13 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+
     server: {
-        watch: {
-            ignored: ['**/storage/framework/views/**'],
+        host: 'pml-portal.lgu-pilarsor.ph',
+        port: 5173,
+        https: {
+            key: '/etc/letsencrypt/live/pml-portal.lgu-pilarsor.ph/privkey.pem',
+            cert: '/etc/letsencrypt/live/pml-portal.lgu-pilarsor.ph/fullchain.pem',
         },
     },
-});
+})
